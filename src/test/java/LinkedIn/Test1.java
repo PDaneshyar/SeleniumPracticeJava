@@ -35,7 +35,7 @@ public class Test1
 
         profile.Search(name);
         profile.LinkedInLink();
-        profile.Shauns();
+//        profile.Shauns();
 
         Shaun.setEmployer(profile.TopCardItems().get(0).getText());
         Shaun.setUniversity(profile.TopCardItems().get(1).getText());

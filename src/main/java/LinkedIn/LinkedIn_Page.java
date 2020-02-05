@@ -40,6 +40,7 @@ public class LinkedIn_Page
 
     public void Shauns()
     {
+        stall();
         List<WebElement> elements = driver.findElements(By.xpath("//h3[contains(text(), 'Shaun Koon')]"));
         elements.get(0).click();
     }
