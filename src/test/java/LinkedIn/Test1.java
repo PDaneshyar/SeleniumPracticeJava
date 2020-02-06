@@ -35,14 +35,14 @@ public class Test1
 
         profile.Search(name);
         profile.LinkedInLink();
-//        profile.Shauns();
+        //profile.Shauns();
 
-        Shaun.setEmployer(profile.TopCardItems().get(0).getText());
-        Shaun.setUniversity(profile.TopCardItems().get(1).getText());
+        //Shaun.setEmployer(profile.TopCardItems().get(0).getText());
+        //Shaun.setUniversity(profile.TopCardItems().get(1).getText());
 
-        Assert.assertEquals(Shaun.getEmployer(), "Sparta Global");
-        Assert.assertEquals(Shaun.getUniversity(), "University of Nottingham");
-
+        //Assert.assertEquals(Shaun.getEmployer(), "Sparta Global");
+        //Assert.assertEquals(Shaun.getUniversity(), "University of Nottingham");
+        Assert.assertEquals(Shaun.getName(), "Shaun Koon");
     }
 
 //    @Test
