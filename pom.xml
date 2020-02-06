@@ -53,7 +53,8 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>main.Class</mainClass>
+                    <executable>App</executable>
+                    <mainClass>LinkedIn.App</mainClass>
                 </configuration>
             </plugin>
         </plugins>
