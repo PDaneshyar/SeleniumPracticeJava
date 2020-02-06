@@ -15,6 +15,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
+                <!-- specify the version of Java you want to use (Jenkins won't work above 11) -->
                     <source>11</source>
                     <target>11</target>
                 </configuration>
@@ -39,6 +40,7 @@
                 </dependencies>
             </plugin>
 
+            <!-- plugin to allow maven to run java files /-->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
@@ -46,6 +48,8 @@
                 <executions>
                     <execution>
                         <id>run-java</id>
+                        <!-- Optional: specify what part of the maven build you want it to run the main program -->
+                        <!-- if you don't include this then in jenkins use exec:java as your maven step -->
                         <phase>package</phase>
                         <goals>
                             <goal>java</goal>
@@ -53,7 +57,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <executable>App</executable>
+                    <!-- Specify where the file that contains the main method is -->
                     <mainClass>LinkedIn.App</mainClass>
                 </configuration>
             </plugin>
@@ -79,6 +83,7 @@
             <version>28.1-jre</version>
         </dependency>
 
+        <!-- junit-jupiter, junit-platform and junit-vintage make up Junit5 together -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
@@ -130,6 +135,7 @@
             <version>3.8.1</version>
         </dependency>
 
+        <!-- Needed to run Sql Server commands in Java -->
         <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>

@@ -28,8 +28,9 @@ public class Test2
     @BeforeAll
     public static void Setup() throws MalformedURLException
     {
-        FirefoxOptions options = new FirefoxOptions();
+        // specify the filepath to the geckodriver instance
         System.setProperty("webdriver.gecko.driver", "//Users/pdaneshyar/Documents/WebDrivers/geckodriver");
+        FirefoxOptions options = new FirefoxOptions();
         profile = new LinkedIn_Page(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options));
         Sam = new Person();
         Sam.setName(name);
