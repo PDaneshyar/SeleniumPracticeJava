@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class LinkedIn_Page
 {
     private RemoteWebDriver driver;
-    private String url = "http://app:3000";
+    private String url = "http://localhost:3000";
 
     public LinkedIn_Page(RemoteWebDriver driver)
     {
