@@ -29,25 +29,26 @@ public class Test2
     public static void Setup() throws MalformedURLException
     {
         // specify the filepath to the geckodriver instance
-        System.setProperty("webdriver.gecko.driver", "//Users/pdaneshyar/Documents/WebDrivers/geckodriver");
+//        System.setProperty("webdriver.gecko.driver", "//Users/pdaneshyar/Documents/WebDrivers/geckodriver");
         FirefoxOptions options = new FirefoxOptions();
-        profile = new LinkedIn_Page(new RemoteWebDriver(new URL("http://pdaneshyar_hub_1:4444/wd/hub"), options));
-        Sam = new Person();
-        Sam.setName(name);
+        profile = new LinkedIn_Page(new RemoteWebDriver(new URL("http://docker-app_hub_1:4444/wd/hub"), options));
+//        Sam = new Person();
+//        Sam.setName(name);
     }
 
     @Test
     public void ExecuteTest()
     {
-        profile.Search(name);
-        profile.LinkedInLink();
+        Assert.assertEquals(profile.navBar(), "Test App");
+//        profile.Search(name);
+//        profile.LinkedInLink();
 
         //Sam.setEmployer(profile.TopCardItems().get(0).getText());
         //Sam.setUniversity(profile.TopCardItems().get(1).getText());
 
         //Assert.assertEquals(Sam.getEmployer(), "Deloitte");
         //Assert.assertEquals(Sam.getUniversity(), "University of Southampton");
-        Assert.assertEquals(Sam.getName(), "Sam Radage");
+//        Assert.assertEquals(Sam.getName(), "Sam Radage");
     }
 
 //    @Test

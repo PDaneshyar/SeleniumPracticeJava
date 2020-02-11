@@ -25,18 +25,18 @@ public class Test1
     public static void Setup() throws MalformedURLException
     {
         // specify the file path to the chromedriver instance
-        System.setProperty("webdriver.chrome.driver", "//Users/pdaneshyar/Documents/WebDrivers/chromedriver");
-        profile = new LinkedIn_Page(new RemoteWebDriver(new URL("http://pdaneshyar_hub_1:4444/wd/hub"), DesiredCapabilities.chrome()));
-        Shaun = new Person();
-        Shaun.setName(name);
+//        System.setProperty("webdriver.chrome.driver", "//Users/pdaneshyar/Documents/WebDrivers/chromedriver");
+        profile = new LinkedIn_Page(new RemoteWebDriver(new URL("http://docker-app_hub_1:4444/wd/hub"), DesiredCapabilities.chrome()));
+//        Shaun = new Person();
+//        Shaun.setName(name);
     }
 
     @Test
     public void ExecuteTest()
     {
-
-        profile.Search(name);
-        profile.LinkedInLink();
+        Assert.assertEquals(profile.navBar(), "Test App");
+//        profile.Search(name);
+//        profile.LinkedInLink();
         //profile.Shauns();
 
         //Shaun.setEmployer(profile.TopCardItems().get(0).getText());
@@ -44,7 +44,7 @@ public class Test1
 
         //Assert.assertEquals(Shaun.getEmployer(), "Sparta Global");
         //Assert.assertEquals(Shaun.getUniversity(), "University of Nottingham");
-        Assert.assertEquals(Shaun.getName(), "Shaun Koon");
+//        Assert.assertEquals(Shaun.getName(), "Shaun Koon");
     }
 
 //    @Test
