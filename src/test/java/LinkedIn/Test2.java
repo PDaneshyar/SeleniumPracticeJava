@@ -31,7 +31,7 @@ public class Test2
         // specify the filepath to the geckodriver instance
 //        System.setProperty("webdriver.gecko.driver", "//Users/pdaneshyar/Documents/WebDrivers/geckodriver");
         FirefoxOptions options = new FirefoxOptions();
-        profile = new LinkedIn_Page(new RemoteWebDriver(new URL("http://172.23.0.3:4444/wd/hub"), options));
+        profile = new LinkedIn_Page(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options));
 //        Sam = new Person();
 //        Sam.setName(name);
         profile.stall();
