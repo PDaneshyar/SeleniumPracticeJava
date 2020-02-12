@@ -26,9 +26,10 @@ public class Test1
     {
         // specify the file path to the chromedriver instance
 //        System.setProperty("webdriver.chrome.driver", "//Users/pdaneshyar/Documents/WebDrivers/chromedriver");
-        profile = new LinkedIn_Page(new RemoteWebDriver(new URL("http://docker-app_hub_1:4444/wd/hub"), DesiredCapabilities.chrome()));
+        profile = new LinkedIn_Page(new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), DesiredCapabilities.chrome()));
 //        Shaun = new Person();
 //        Shaun.setName(name);
+        profile.stall();
     }
 
     @Test
