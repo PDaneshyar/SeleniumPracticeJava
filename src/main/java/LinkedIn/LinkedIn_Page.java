@@ -23,7 +23,7 @@ public class LinkedIn_Page
 
     public void stall()
     {
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     public void Search(String query)
