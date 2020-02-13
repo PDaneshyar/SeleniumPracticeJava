@@ -26,7 +26,10 @@ public class Test1
     {
         // specify the file path to the chromedriver instance
 //        System.setProperty("webdriver.chrome.driver", "//Users/pdaneshyar/Documents/WebDrivers/chromedriver");
-        profile = new LinkedIn_Page(new RemoteWebDriver(new URL("http://172.23.0.3:4444/wd/hub"), DesiredCapabilities.chrome()));
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setBrowserName("Chrome");
+        capabilities.setVersion("TestNode");
+        profile = new LinkedIn_Page(new RemoteWebDriver(new URL("http://172.23.0.3:4444/wd/hub"), ));
 //        Shaun = new Person();
 //        Shaun.setName(name);
         profile.stall();
