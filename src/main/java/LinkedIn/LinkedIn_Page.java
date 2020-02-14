@@ -51,6 +51,7 @@ public class LinkedIn_Page
         return elements;
     }
 
+    // this relates to sam's app not linked in
     public String navBar()
     {
         return driver.findElement(By.xpath("//span[@class='navbar-brand']")).getText();
