@@ -55,19 +55,19 @@ public class App
         }
 
         // Delete demo
-//        String userToDelete = "Koosha";
-//        System.out.print("Deleting doctor " + userToDelete);
-//        query = "Delete from tblDoctor where doctorName = ?;";
-//        try(PreparedStatement statement = conn.prepareStatement(query))
-//        {
-//            statement.setString(1, userToDelete);
-//            int rowsAffected = statement.executeUpdate();
-//            System.out.println(rowsAffected + " row(s) deleted");
-//        }
-//        catch (SQLException e)
-//        {
-//            e.printStackTrace();
-//        }
+        String userToDelete = "Koosha";
+        System.out.print("Deleting doctor " + userToDelete);
+        query = "Delete from tblDoctor where doctorName = ?;";
+        try(PreparedStatement statement = conn.prepareStatement(query))
+        {
+            statement.setString(1, userToDelete);
+            int rowsAffected = statement.executeUpdate();
+            System.out.println(rowsAffected + " row(s) deleted");
+        }
+        catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
 
         System.out.println("Reading data from a table");
         query = "select doctorName, FirstEpisodeDate from tblDoctor;";
