@@ -1,9 +1,5 @@
 pipeline
 {
-    environment
-    {
-        PATH = "$PATH:/docker"
-    }
     agent any
     tools
     {
