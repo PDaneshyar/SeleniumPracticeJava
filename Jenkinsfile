@@ -1,5 +1,9 @@
 pipeline
 {
+    environment
+    {
+        PATH = "$PATH:../documents/dockerapp/jenkins/docker"
+    }
     agent any
     tools
     {
