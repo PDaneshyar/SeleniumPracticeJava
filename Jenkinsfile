@@ -19,7 +19,7 @@ pipeline
         {
             steps
             {
-                sh "docker-compose -f /usr/bin/docker-compose.yml up"
+                sh "docker-compose -f SeleniumPracticeJava/docker-compose.yml up"
             }
         }
         stage('Clean')
