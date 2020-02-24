@@ -4,17 +4,18 @@ pipeline
     tools
     {
         maven "Maven"
+        docker "Docker"
     }
     stages
     {
-        stage('Initialize')
-        {
-            steps
-            {
-                def dockerHome = tool 'Docker'
-                env.PATH = "${dockerHome}/bin:${env.PATH}"
-            }
-        }
+//         stage('Initialize')
+//         {
+//             steps
+//             {
+//                 def dockerHome = tool 'Docker'
+//                 env.PATH = "${dockerHome}/bin:${env.PATH}"
+//             }
+//         }
         stage ("Docker Compose")
         {
             steps
