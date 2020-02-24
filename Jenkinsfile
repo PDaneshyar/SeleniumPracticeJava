@@ -2,7 +2,7 @@ pipeline
 {
     environment
     {
-        PATH = "$PATH:../docker"
+        PATH = "$PATH:/docker"
     }
     agent any
     tools
@@ -11,14 +11,6 @@ pipeline
     }
     stages
     {
-//         stage('Initialize')
-//         {
-//             steps
-//             {
-//                 def dockerHome = tool 'Docker'
-//                 env.PATH = "${dockerHome}/bin:${env.PATH}"
-//             }
-//         }
         stage ("Docker Compose")
         {
             steps
