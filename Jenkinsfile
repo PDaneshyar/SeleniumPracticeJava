@@ -11,8 +11,8 @@ pipeline
         {
             steps
             {
-                sh "docker-compose build"
-                sh "docker-compose up"
+                sh "../documents/docker-app/TestFramework/docker-compose build"
+                sh "../documents/docker-app/TestFramework/docker-compose up"
             }
         }
         stage('Clean')
