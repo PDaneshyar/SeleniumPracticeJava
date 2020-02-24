@@ -6,5 +6,6 @@ import org.junit.runner.RunWith;
 
 @RunWith(JUnitPlatform.class)
 @SelectPackages("LinkedIn")
-public class TestSuite {
+public class TestSuite
+{
 }

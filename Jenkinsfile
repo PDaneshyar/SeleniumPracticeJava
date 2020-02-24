@@ -7,6 +7,14 @@ pipeline
     }
     stages
     {
+        stage ("Docker Compose")
+        {
+            steps
+            {
+                sh "docker-compose build"
+                sh "docker-compose up"
+            }
+        }
         stage('Clean')
         {
             steps

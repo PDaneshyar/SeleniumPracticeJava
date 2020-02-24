@@ -20,7 +20,6 @@ public class Test1
     static Person Shaun;
     static LinkedIn_Page profile;
 
-
     @BeforeAll
     public static void Setup() throws MalformedURLException
     {
