@@ -4,7 +4,6 @@ pipeline
     tools
     {
         maven "Maven"
-        docker "Docker"
     }
     stages
     {
@@ -20,7 +19,7 @@ pipeline
         {
             steps
             {
-                sh "docker-compose up"
+                sh "docker-compose -f docker-compose.yml up"
             }
         }
         stage('Clean')
