@@ -11,7 +11,7 @@ pipeline
         {
             steps
             {
-                sh "./docker-compose.sh "
+                sh "src/docker-compose.sh "
             }
         }
         stage('Clean')
