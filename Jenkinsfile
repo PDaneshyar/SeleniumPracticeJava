@@ -7,12 +7,13 @@ pipeline
     }
     environment
     {
-        PATH = "$PATH:var/jenkins_home"
+        PATH = "$PATH:/usr/local/bin/"
     }
     stages
     {
         stage ("Docker Compose")
         {
+            withEnv(PATH)
             steps
             {
                 sh "docker-compose -f ./dockerapp-compose.yml up"
