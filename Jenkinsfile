@@ -7,7 +7,7 @@ pipeline
     }
     environment
     {
-        PATH = "$PATH:/usr/local/bin"
+        PATH = "$PATH:/var/jenkins_home"
     }
     stages
     {
@@ -15,7 +15,7 @@ pipeline
         {
             steps
             {
-                sh "chmod +x /usr/local/bin/docker-compose"
+                //sh "chmod +x /var/jenkins_home/docker-compose"
                 sh "docker-compose -f ./dockerapp-compose.yml up"
             }
         }
