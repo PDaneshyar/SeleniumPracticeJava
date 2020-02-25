@@ -36,14 +36,14 @@ pipeline
             {
                 sh 'mvn test'
             }
-            post
-            {
-                always
-                {
-                    //step([$class: 'DockerComposeBuilder', dockerComposeFile: 'dockerapp-compose.yml', option: [$class: 'StopAllServices'], useCustomDockerComposeFile: true])
-                    //junit 'target/surefire-reports/*.xml'
-                }
-            }
+//             post
+//             {
+//                 always
+//                 {
+//                     //step([$class: 'DockerComposeBuilder', dockerComposeFile: 'dockerapp-compose.yml', option: [$class: 'StopAllServices'], useCustomDockerComposeFile: true])
+//                     //junit 'target/surefire-reports/*.xml'
+//                 }
+//             }
         }
     }
 }
