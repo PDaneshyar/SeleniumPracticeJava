@@ -15,7 +15,7 @@ pipeline
         {
             steps
             {
-                sh "${PATH} -f ./dockerapp-compose.yml up"
+                sh "docker-compose ./dockerapp-compose.yml up"
             }
         }
         stage('Clean')
