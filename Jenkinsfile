@@ -20,7 +20,7 @@ pipeline
 //             }
             steps
             {
-                ([$class: 'DockerComposeBuilder', dockerComposeFile: 'dockerapp-compose.yml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
+                [$class: 'DockerComposeBuilder', dockerComposeFile: 'dockerapp-compose.yml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true]
             }
         }
         stage('Clean')
