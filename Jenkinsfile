@@ -15,10 +15,7 @@ pipeline
         {
             steps
             {
-                withenv(PATH)
-                {
-                    sh "docker-compose -f ./dockerapp-compose.yml up"
-                }
+                sh "${PATH} -f ./dockerapp-compose.yml up"
             }
         }
         stage('Clean')
