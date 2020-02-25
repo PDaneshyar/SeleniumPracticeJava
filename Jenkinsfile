@@ -41,7 +41,7 @@ pipeline
                 always
                 {
                     step([$class: 'DockerComposeBuilder', dockerComposeFile: 'dockerapp-compose.yml', option: [$class: 'StopAllServices'], useCustomDockerComposeFile: true])
-                    junit 'target/surefire-reports/*.xml'
+                    //junit 'target/surefire-reports/*.xml'
                 }
             }
         }
