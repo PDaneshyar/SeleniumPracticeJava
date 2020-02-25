@@ -5,6 +5,10 @@ pipeline
     {
         maven "Maven"
     }
+    environment
+    {
+        PATH = "$PATH:var/jenkins_home"
+    }
     stages
     {
         stage ("Docker Compose")
