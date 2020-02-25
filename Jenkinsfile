@@ -13,15 +13,15 @@ pipeline
     {
         stage ("Docker Compose")
         {
-            steps
-            {
-                //sh "chmod +x /var/jenkins_home/docker-compose"
-                sh "docker-compose dockerapp-compose.yml up"
-            }
 //             steps
 //             {
-//                 $class: 'DockerComposeBuilder', dockerComposeFile: 'dockerapp-compose.yml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true
+//                 //sh "chmod +x /var/jenkins_home/docker-compose"
+//                 sh "docker-compose dockerapp-compose.yml up"
 //             }
+            steps
+            {
+                sh "[$class: \'DockerComposeBuilder\', dockerComposeFile: \'dockerapp-compose.yml\', option: [$class: \'StartAllServices\'], useCustomDockerComposeFile: true]"
+            }
         }
         stage('Clean')
         {
