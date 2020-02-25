@@ -13,8 +13,8 @@ pipeline
     {
         stage ("Docker Compose")
         {
-            withEnv(PATH)
             steps
+            withEnv(PATH)
             {
                 sh "docker-compose -f ./dockerapp-compose.yml up"
             }
