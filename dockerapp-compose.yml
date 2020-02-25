@@ -1,0 +1,109 @@
+version: "3"
+services:
+    chrome:
+      image: selenium/node-chrome-debug
+      ports:
+        - 5900:5900
+      volumes:
+          - /dev/shm:/dev/shm
+      depends_on:
+          - hub
+      environment:
+          VNC_PORT: 5900
+          VNC_PASSWORD: secret
+          NODE_MAX_INSTANCES: 1
+          NODE_MAX_SESSION: 1
+          HUB_HOST: hub
+      networks:
+        my-network:
+          ipv4_address: 172.23.0.6
+    chrome2:
+      image: selenium/node-chrome-debug
+      ports:
+          - 5901:5900
+      volumes:
+          - /dev/shm:/dev/shm
+      depends_on:
+          - hub
+      environment:
+          VNC_PORT: 5901
+          VNC_PASSWORD: secret
+          NODE_MAX_INSTANCES: 1
+          NODE_MAX_SESSION: 1
+          HUB_HOST: hub
+      networks:
+        my-network:
+          ipv4_address: 172.23.0.10
+    firefox:
+      image: selenium/node-firefox-debug
+      ports:
+          - 5902:5900
+      volumes:
+          - /dev/shm:/dev/shm
+      depends_on:
+          - hub
+      environment:
+          VNC_PORT: 5902
+          VNC_PASSWORD: secret
+          NODE_MAX_INSTANCES: 1
+          NODE_MAX_SESSION: 1
+          HUB_HOST: hub
+      networks:
+        my-network:
+          ipv4_address: 172.23.0.2
+    hub:
+      image: selenium/hub
+      ports:
+          - "4444:4444"
+      networks:
+        my-network:
+          ipv4_address: 172.23.0.3
+    app:
+      container_name: app
+      restart: always
+      build: ./test-app
+      ports:
+        - "3000:3000"
+      volumes:
+        - ./test-app:/app
+      networks:
+        my-network:
+          ipv4_address: 172.23.0.5
+
+    backend:
+      container_name: backend
+      restart: always
+      build: ./back-end
+      ports:
+        - "4000:4000"
+      depends_on:
+        - mongo
+      networks:
+        my-network:
+          ipv4_address: 172.23.0.7
+      volumes:
+        - ./back-end:/app
+      #command: bash -c "./wait-for-it.sh --timeout=0 172.23.0.8:27017 && nodemon server.js"
+    mongo:
+      container_name: mongo
+      image: mongo
+      restart: on-failure
+      volumes:
+        - ./mongo/:/data/db/
+        - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      ports:
+        - "27017:27017"
+      networks:
+        my-network:
+          ipv4_address: 172.23.0.8
+      environment:
+            MONGO_INITDB_ROOT_USERNAME: admin
+            MONGO_INITDB_ROOT_PASSWORD: password
+            MONGO_INITDB_DATABASE: docker-app
+      command: bash -c "mongod --repair && mongod --bind_ip 172.23.0.8"
+networks:
+    my-network:
+      ipam:
+        driver: default
+        config:
+          - subnet: "172.23.0.0/24"
