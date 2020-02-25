@@ -16,7 +16,7 @@ pipeline
             steps
             {
                 //sh "chmod +x /var/jenkins_home/docker-compose"
-                sh "docker-compose -f dockerapp-compose.yml up"
+                bash "docker-compose -f dockerapp-compose.yml up"
             }
         }
         stage('Clean')
