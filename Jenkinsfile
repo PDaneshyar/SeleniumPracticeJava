@@ -14,9 +14,11 @@ pipeline
         stage ("Docker Compose")
         {
             steps
-            withEnv(PATH)
             {
-                sh "docker-compose -f ./dockerapp-compose.yml up"
+                withenv(PATH)
+                {
+                    sh "docker-compose -f ./dockerapp-compose.yml up"
+                }
             }
         }
         stage('Clean')
